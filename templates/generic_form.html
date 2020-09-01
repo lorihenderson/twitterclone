@@ -1,0 +1,14 @@
+<div id="form">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        {% if request.path == "/login/" %}
+        <button type="submit">Login</button>
+        <a href="/signup/">Sign up please lol</a>
+        {% elif request.path == "/signup/" %}
+        <button type="submit">Sign Up!</button>
+        {% else %}
+        <button type="submit">Submit</button>
+        {% endif %}
+    </form>
+</div>
