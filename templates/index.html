@@ -1,3 +1,10 @@
 <h1>{{Welcome}}</h1>
 <br>
+<a href="/addtweet/"><button type="button">Make a Tweet</button></a>
 <a href="/logout/"><button type="button">Logout</button></a>
+
+{% for post in my_tweets reversed %}
+<p>{{ post.tweet_post }}</p>
+<a href="author/{{post.tweet_author.id}}/"><p>{{ post.tweet_author }}</p></a>
+<hr>
+{% endfor %}

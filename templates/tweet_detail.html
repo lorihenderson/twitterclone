@@ -1,0 +1,19 @@
+<div class="container">
+    {% for post in my_tweets %}
+    {% if not post %}
+        <h2>The tweet you are trying to reach does not exist.</h2>
+    {% else %}
+        <h2>{{ post.tweet_post }}</h2>
+        <a href="tweet/{{tweet.id}}/">{{ post.tweet_post }}</a>
+    {% endif %}
+    {% endfor %}
+</div>
+
+
+<!-- <ul>
+    {% for recipe in recipes %}
+    <li>
+        <a href="recipe/{{recipe.id}}/">{{ recipe.title }}</a>
+    </li>
+    {% endfor %}
+</ul> -->

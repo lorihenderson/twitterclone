@@ -3,5 +3,5 @@ from django.utils import timezone
 from django.contrib.auth.models import AbstractUser
 
 class TwitterUser(AbstractUser):
-    pass
+    following = models.ManyToManyField("self", symmetrical=False)
 # followers

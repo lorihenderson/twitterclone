@@ -2,13 +2,8 @@ from django.shortcuts import render, HttpResponseRedirect, reverse
 from django.contrib.auth import login
 from django.contrib.auth.decorators import login_required
 from twitteruser.models import TwitterUser
+from tweet.models import Tweet
 from twitteruser.forms import SignupForm
-
-
-@login_required
-def index(request):
-
-    return render(request, "index.html", {"Welcome": "Welcome"})
 
 
 def signup_view(request):
@@ -26,3 +21,18 @@ def signup_view(request):
 
     form = SignupForm()
     return render(request, "generic_form.html", {"form": form})
+
+
+def author_detail(request, author_id):
+    current_user = TwitterUser.objects.filter(id=author_id).first()
+    tweet_grabber = Tweet.objects.filter(tweet_author=current_user)
+    return render(request, "author_detail.html", {"current_user": current_user, "tweet_grabber": tweet_grabber})
+
+
+def following(request, follow_id):
+    # current_user = 
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+def unfollowing(request, unfollow_id):
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
