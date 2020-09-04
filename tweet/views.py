@@ -11,7 +11,7 @@ def tweet_index(request):
 
 
 def tweet_detail(request, tweet_id):
-    my_tweet = Tweet.objects.filter(tweet=tweet_id).first()
+    my_tweet = Tweet.objects.filter(id=tweet_id).first()
     return render(request, "tweet_detail.html", {"my_tweet": my_tweet})
 
 
@@ -21,7 +21,7 @@ def add_tweet(request):
         if form.is_valid():
             data = form.cleaned_data
             Tweet.objects.create(
-                tweet_post = data.get("tweet_post"),
+                tweet = data.get("tweet"),
                 tweet_author = request.user
             )
             return HttpResponseRedirect(reverse("homepage"))

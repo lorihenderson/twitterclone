@@ -1,5 +1,9 @@
-{{ current_user }}
+<h3>Author Detail Page</h3>
 
-{% for tweet in tweet_grabber %}
-{{ tweet.tweet_post }}
+<h4>User</h4>
+<p>{{ current_user }}</p>
+
+<h4>Tweets</h4>
+<p>{% for tweet in tweet_grabber %}</p>
+<p>{{ tweet.tweet_post }}</p>
 {% endfor %}

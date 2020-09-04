@@ -4,7 +4,7 @@
 <a href="/logout/"><button type="button">Logout</button></a>
 
 {% for post in my_tweets reversed %}
-<p>{{ post.tweet_post }}</p>
-<a href="author/{{post.tweet_author.id}}/"><p>{{ post.tweet_author }}</p></a>
+<a href="/tweet_author/{{post.tweet_author.id}}/"><p>{{ post.tweet_author }}</p></a>
+<a href="/tweet_post/{{post.id}}/"><p>{{ post.tweet_post }}</p></a>
 <hr>
 {% endfor %}
