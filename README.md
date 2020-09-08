@@ -13,3 +13,5 @@ https://docs.python.org/3/library/re.html#finding-all-adverbs
 ### Used as reference:
 https://docs.djangoproject.com/en/3.0/ref/models/querysets/
 http://www.learningaboutelectronics.com/Articles/How-to-filter-database-results-in-Django.php
+
+### Class-based views -> help from Matt and Joe on fixing errors
