@@ -10,3 +10,7 @@ https://docs.python.org/3/library/re.html#finding-all-adverbs
 
 ### Help from Jessica Benson and Sohail on notifications / notifications count
 ### Chris Escobedo helped with notification count and tweet filtering
+
+### Used as reference:
+https://docs.djangoproject.com/en/3.0/ref/models/querysets/
+http://www.learningaboutelectronics.com/Articles/How-to-filter-database-results-in-Django.php
