@@ -1,9 +1,20 @@
 <h3>Author Detail Page</h3>
 
-<h4>User</h4>
-<p>{{ current_user }}</p>
+<h4>User: {{ current_user }} </h4>
 
+{% if current_user != user %}
+    <a href="/following/{{current_user.id}}/"><button type="button">Follow</button></a>
+    <a href="/unfollowing/{{current_user.id}}/"><button type="button">Unfollow</button></a>
+{% endif %}
+<h4>Following Count: {{ current_user.following.all.count }}</h4>
+<h4>Users following: {{ current_user.following.all }}</h4>
 <h4>Tweets</h4>
-<p>{% for tweet in tweet_grabber %}</p>
-<p>{{ tweet.tweet_post }}</p>
+<h4>{{tweet_post.count}}</h4>
+{% for tweet in tweet_grabber %}
+<ul>
+    <li>
+        <p>{{ tweet.tweet_post }}</p>
+    </li>
+</ul>
 {% endfor %}
+<p> Number of tweets: {{tweet_grabber.count }}</p>

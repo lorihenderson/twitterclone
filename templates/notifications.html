@@ -1,0 +1,6 @@
+<a href="/"><button>Home</button></a>
+
+{% for notified in notifications %}
+{{ notified.tweet_post }}
+{{ notified.tweet_author }}
+{% endfor %}

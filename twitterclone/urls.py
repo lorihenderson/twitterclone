@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from twitteruser.views import signup_view, author_detail, following, unfollowing
+from twitteruser.views import signup_view, author_detail, following_view, unfollowing_view
 from authentication.views import login_view, logout_view
 from tweet.views import tweet_index, add_tweet, tweet_detail
-# from notification.views import 
+from notification.views import show_notifications
 
 
 
@@ -30,7 +30,8 @@ urlpatterns = [
     path('addtweet/', add_tweet),
     path('tweet_post/<int:tweet_id>/', tweet_detail),
     path('tweet_author/<int:author_id>/', author_detail),
-    # path('following/<int:follow_id>/', follow_detail),
-    # path('unfollowing/<int:unfollow_id>/', unfollow_detail),
+    path('following/<int:follow_id>/', following_view),
+    path('unfollowing/<int:unfollow_id>/', unfollowing_view),
+    path('notification/<int:notification_id>/', show_notifications),
     path('admin/', admin.site.urls),
 ]

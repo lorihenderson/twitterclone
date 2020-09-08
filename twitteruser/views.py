@@ -29,10 +29,15 @@ def author_detail(request, author_id):
     return render(request, "author_detail.html", {"current_user": current_user, "tweet_grabber": tweet_grabber})
 
 
-def following(request, follow_id):
-    # current_user = 
+def following_view(request, follow_id):
+    signed_in_user = TwitterUser.objects.filter(username=request.user.username).first()
+    follow = TwitterUser.objects.filter(id=follow_id).first()
+    signed_in_user.following.add(follow)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
-def unfollowing(request, unfollow_id):
+def unfollowing_view(request, unfollow_id):
+    signed_in_user = request.user
+    unfollow = TwitterUser.objects.filter(id=unfollow_id).first()
+    signed_in_user.following.remove(unfollow)
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

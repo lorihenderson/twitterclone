@@ -2,8 +2,10 @@
 <br>
 <a href="/addtweet/"><button type="button">Make a Tweet</button></a>
 <a href="/logout/"><button type="button">Logout</button></a>
+<a href="/notification/{{user.id}}"><button type="button">Notifications</button></a>
+Number of notifications: {{ notification_count }}
 
-{% for post in my_tweets reversed %}
+{% for post in feed %}
 <a href="/tweet_author/{{post.tweet_author.id}}/"><p>{{ post.tweet_author }}</p></a>
 <a href="/tweet_post/{{post.id}}/"><p>{{ post.tweet_post }}</p></a>
 <hr>
