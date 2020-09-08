@@ -17,7 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from twitteruser.views import signup_view, author_detail, following_view, unfollowing_view
 from authentication.views import login_view, logout_view
-from tweet.views import tweet_index, add_tweet, tweet_detail
+from tweet.views import tweet_index, add_tweet, TweetDetail
 from notification.views import show_notifications
 
 
@@ -28,7 +28,7 @@ urlpatterns = [
     path('logout/', logout_view),
     path('signup/', signup_view),
     path('addtweet/', add_tweet),
-    path('tweet_post/<int:tweet_id>/', tweet_detail),
+    path('tweet_post/<int:tweet_id>/', TweetDetail.as_view()),
     path('tweet_author/<int:author_id>/', author_detail),
     path('following/<int:follow_id>/', following_view),
     path('unfollowing/<int:unfollow_id>/', unfollowing_view),

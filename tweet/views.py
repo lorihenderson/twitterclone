@@ -4,6 +4,7 @@ from tweet.forms import AddTweet
 from django.contrib.auth.decorators import login_required
 from notification.models import Notification
 from twitteruser.models import TwitterUser
+from django.views.generic.base import View
 import re
 
 
@@ -17,9 +18,17 @@ def tweet_index(request):
     return render(request, "index.html", {"my_tweets": my_tweets, "following_list": following_list, "feed": feed, "notification_count": len(notifications)})
 
 
-def tweet_detail(request, tweet_id):
-    my_tweet = Tweet.objects.filter(id=tweet_id).first()
-    return render(request, "tweet_detail.html", {"my_tweet": my_tweet})
+# def tweet_detail(request, tweet_id):
+#     my_tweet = Tweet.objects.filter(id=tweet_id).first()
+#     return render(request, "tweet_detail.html", {"my_tweet": my_tweet})
+
+# referenced Joe's demo
+class TweetDetail(View):
+    def get(self, request, r_id):
+        html = "tweet_detail.html"
+        my_tweet = Tweet.objects.filter(id=tweet_id).first()
+        return render(request, html, {"my_tweet": my_tweet})
+
 
 
 def add_tweet(request):

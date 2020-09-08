@@ -1,6 +1,5 @@
 ### Worked with Mavrick Watts, Jessica Woods, Ruben Espino, Edwin Torres, and Triston Reeves
 
-
 ### Matt helped with following/unfollowing functionality
 https://docs.djangoproject.com/en/3.0/topics/db/examples/many_to_many/
 
